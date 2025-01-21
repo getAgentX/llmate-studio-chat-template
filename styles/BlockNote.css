@@ -1,0 +1,100 @@
+/* Common Styles */
+.bn-container[data-theming-css-variables-demo] {
+  --bn-colors-editor-text: #ffffff;
+  --bn-colors-editor-background: #09090b;
+  --bn-colors-menu-text: #ffffff;
+  --bn-colors-menu-background: #000000;
+  --bn-colors-tooltip-text: #ffffff;
+  --bn-colors-tooltip-background: #4c4f59;
+  --bn-colors-hovered-text: #f6f6f6;
+  --bn-colors-hovered-background: #295ef4;
+  --bn-colors-selected-text: #ffffff;
+  --bn-colors-selected-background: #09090b;
+  --bn-colors-disabled-text: #afafaf;
+  --bn-colors-disabled-background: #efefef;
+  --bn-colors-border: #232229;
+  --bn-colors-side-menu: var(--text-primary);
+}
+
+.bn-block {
+  font-size: 14px;
+}
+
+.bn-block-content.ProseMirror-selectednode > *,
+.ProseMirror-selectednode > .bn-block-content > * {
+  border-radius: 4px !important;
+  border: none;
+  outline: none !important; /* Remove blue outline */
+  box-shadow: none !important; /* Also remove any box-shadow outline */
+}
+
+.bn-block > a {
+  cursor: pointer;
+}
+
+.bn-editor[contenteditable="true"] [data-file-block] .bn-add-file-button {
+  background-color: #09090b;
+  color: #ffffff;
+}
+.bn-editor::placeholder {
+  color: var(--text-primary);
+}
+.bn-editor[contenteditable="true"] [data-file-block] .bn-add-file-button:hover {
+  background-color: #0f0f10 !important;
+}
+
+.bn-editor table {
+  border-color: #242628 !important;
+}
+
+.bn-editor table th {
+  border-color: #1b1b1d !important;
+}
+
+.bn-editor table td {
+  border-color: #1f1f21 !important;
+}
+
+.m_8d3afb97 {
+  background-color: #282828 !important;
+}
+
+/* Dark Theme */
+.bn-container[data-theming-css-variables-demo][data-color-scheme="dark"] {
+  --bn-colors-editor-text: #ffffff;
+  --bn-colors-editor-background: #09090b;
+  --bn-colors-menu-text: #ffffff;
+  --bn-colors-menu-background: #000000;
+  --bn-colors-tooltip-text: #ffffff;
+  --bn-colors-tooltip-background: #4c4f59;
+  --bn-colors-hovered-text: #f6f6f6;
+  --bn-colors-hovered-background: #295ef4;
+  --bn-colors-selected-text: #ffffff;
+  --bn-colors-selected-background: #09090b;
+  --bn-colors-disabled-text: #afafaf;
+  --bn-colors-disabled-background: #efefef;
+  --bn-colors-border: #232229;
+  --bn-colors-side-menu: var(--text-primary);
+}
+
+/* Light Theme */
+.bn-container[data-theming-css-variables-demo][data-color-scheme="light"] {
+  --bn-colors-editor-text: #1e1e1e;
+  --bn-colors-editor-background: #ffffff;
+  --bn-colors-menu-text: #1e1e1e;
+  --bn-colors-menu-background: #fff;
+  --bn-colors-tooltip-text: #1e1e1e;
+  --bn-colors-tooltip-background: #f0f0f0;
+  --bn-colors-hovered-text: #000000;
+  --bn-colors-hovered-background: #d9eaff;
+  --bn-colors-selected-text: #000000;
+  --bn-colors-selected-background: #e0e0e0;
+  --bn-colors-disabled-text: #afafaf;
+  --bn-colors-disabled-background: #f5f5f5;
+  --bn-colors-border: var(--border-color);
+  --bn-colors-side-menu: #eeeeee;
+}
+
+.bn-editor [data-floating-ui-focusable] {
+  z-index: 1000 !important; /* Adjust the z-index as required */
+}

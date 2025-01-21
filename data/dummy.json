@@ -1,0 +1,125 @@
+{
+  "table_metadata": [
+    {
+      "interpreted_question": {
+        "userQuery": "Which keywords have the highest Advertising Cost of Sale (ACOS) in sponsored brand type ad campaigns for the last 14 days?",
+        "reportsToQuery": {
+          "targeting_chatbot": true
+        }
+      },
+      "sql_cmd": "SELECT targeting,\n       SAFE_DIVIDE(SUM(adSpend), SUM(adRevenue))*100 AS ACOS_Percentage,\n       SUM(adSpend) AS totalAdSpend,\n       SUM(adRevenue) AS totalAdRevenue\nFROM targeting_chatbot\nWHERE targetingTypes = \"Keyword Targeting\"\n  AND campaignType = \"sponsored brands\"\n  AND Date BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 14 DAY) AND CURRENT_DATE() -1\nGROUP BY targeting\nORDER BY totalAdSpend DESC",
+      "table": {
+        "targeting": [
+          "diamond heart stud earrings",
+          "heart stud earrings for women",
+          "diamond square stud earrings for women",
+          "diamond square stud earrings",
+          "earrings",
+          "diamond earring",
+          "diamond earrings",
+          "earrings for women",
+          "2 carat diamond earrings",
+          "diamond earrings for women",
+          "emerald cut diamond earrings",
+          "princess cut diamond earrings",
+          "diamond stud earrings for women",
+          "teardrop diamond stud earrings for women",
+          "diamond necklace",
+          "0.5 carat pendant",
+          "0.5 carat necklace",
+          "gia certified necklace",
+          "diamond pendant necklace",
+          "0.5 carat pendant necklace",
+          "gia certified diamond necklace",
+          "natural diamond pendant necklace",
+          "diamond pendant necklace for women",
+          "0.5 diamond pendant necklace for women",
+          "gia certified diamond pendant necklace",
+          "diamond stud earrings",
+          "diamond earrings studs",
+          "teardrop diamond earrings",
+          "gia certified stud earring",
+          "real diamond stud earrings"
+        ],
+        "ACOS_Percentage": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "totalAdSpend": [
+          2.2, 1.74, 1.59, 1.43, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0, 0.0
+        ],
+        "totalAdRevenue": [
+          0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0
+        ]
+      },
+      "tool_name": "Targeting Summary",
+      "table_type": "data_too_large"
+    }
+  ],
+  "suggested_questions": null,
+  "_id": "65f1a444e5dc8ad264c7646e",
+  "chat": {
+    "id": "65f1a444e5dc8ad264c7646d",
+    "client_id": "nikhil",
+    "created_user_id": "nikhil",
+    "client_dataset_id": "CaratCrazeUScdc29c953152085a",
+    "label": "Keywords, Advertising Cost of Sale (ACOS), sponsored brand type ad campaigns",
+    "is_deleted": false,
+    "created_at": "2024-03-13T13:04:04.544000",
+    "is_label_updated": true
+  },
+  "created_user_id": "nikhil",
+  "user_id": "nikhil",
+  "user_text": "Which keywords have the highest Advertising Cost of Sale (ACOS) in sponsored brand type ad campaigns?",
+  "custom_filters": {},
+  "response_text": "To find the keywords with the highest Advertising Cost of Sale (ACOS) in sponsored brand type ad campaigns for the last 14 days, the data was pulled from the \"targeting_chatbot\" report. The query filtered for campaigns with \"Keyword Targeting\" and \"sponsored brands\" within the last 14 days.\n\nThe formula used to calculate ACOS is the total advertising spend divided by the total advertising revenue, multiplied by 100 to get a percentage. The keywords were then grouped by targeting and sorted by total advertising spend in descending order.\n\nThe data shows keywords like 'diamond heart stud earrings', 'heart stud earrings for women', and 'diamond square stud earrings for women' with their corresponding total advertising spend. However, there is no data available for ACOS percentage or total advertising revenue for these keywords. The trends in the data indicate which keywords are costing more in advertising spend within the specified campaign type and timeframe.",
+  "langsmith_trace_id": "2711ad2a-d3ce-4b6a-8ef6-508519b401fa",
+  "response_status": "success",
+  "user_reaction": null,
+  "user_feedback": null,
+  "celery_task_id": "d91b6adb-e022-486d-aacd-4dffae592b60",
+  "created_at": "2024-03-13T13:04:04.622000",
+  "parent_message_id": null,
+  "use_streaming": false,
+  "selected_tables": [
+    "targeting_chatbot",
+    "searchTerm_chatbot",
+    "advertisedProduct_chatbot",
+    "placement_chatbot",
+    "vendor_chatbot",
+    "seller_chatbot"
+  ],
+  "currency": "INR"
+}
