@@ -1,3 +1,0 @@
-user_query,steps_to_follow,sql_cmd
-show top 10 entries,step1,SELECT * FROM targeting_chatbot LIMIT 10
-Top 8 keywords by Revenue,step1,SELECT * FROM targeting_chatbot LIMIT 10

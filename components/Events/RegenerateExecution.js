@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TableModal from "../Modal/TableModal";
 import { useRefreshAssistantGraphEventMutation } from "@/store/assistant";
-import SqlErrorModal from "../Modal/SqlErrorModal";
 import CodeHighlighter from "../common/CodeHighlighter";
 import DashboardDropdown from "../common/DashboardDropdown";
 import CommonChart from "../common/CommonChart";
@@ -145,19 +144,12 @@ const RegenerateExecution = ({
   //             </div>
   //           </div>
   //         </div>
-
-  //         <SqlErrorModal
-  //           showSqlError={showSqlError}
-  //           setShowSqlError={setShowSqlError}
-  //           data={[event.error_message]}
-  //         />
   //       </div>
 
   //       {/* <div className="h-8 w-0.5 bg-[#282828] mt-2 ml-8"></div> */}
   //     </div>
   //   );
   // }
-
 
   return (
     <div className="w-full">
@@ -201,19 +193,21 @@ const RegenerateExecution = ({
             <div className="flex items-center justify-between pt-2 border-b border-border">
               <div className="flex-wrap items-center hidden w-full pt-2 space-x-4 sm:flex max-w-fit">
                 <button
-                  className={`text-xs pb-3 border-b-2 font-medium flex justify-center items-center space-x-2 tracking-wider capitalize transition-colors duration-300 ${currentTab === "table"
+                  className={`text-xs pb-3 border-b-2 font-medium flex justify-center items-center space-x-2 tracking-wider capitalize transition-colors duration-300 ${
+                    currentTab === "table"
                       ? "text-accent border-secondary"
                       : "text-white/50 border-transparent"
-                    }`}
+                  }`}
                   onClick={() => setCurrentTab("table")}
                 >
                   <span>table</span>
                 </button>
                 <button
-                  className={`text-xs pb-3 border-b-2 font-medium flex justify-center items-center space-x-2 tracking-wider capitalize transition-colors duration-300 ${currentTab === "graph"
+                  className={`text-xs pb-3 border-b-2 font-medium flex justify-center items-center space-x-2 tracking-wider capitalize transition-colors duration-300 ${
+                    currentTab === "graph"
                       ? "text-accent border-secondary"
                       : "text-white/50 border-transparent"
-                    }`}
+                  }`}
                   onClick={() => setCurrentTab("graph")}
                 >
                   <span>graph</span>
@@ -245,21 +239,12 @@ const RegenerateExecution = ({
               </div>
             </div>
 
-            {/* {currentTab === "output" && (
-            <TableCard
-              event={event}
-              data={event.dataframe || {}}
-              showAddDashboard={showAddDashboard}
-              handleShowMore={handleShowMore}
-              isLoading={isLoading}
-            />
-          )} */}
-
             {currentTab === "table" && (
               <div className="flex flex-col w-full space-y-4">
-                {event?.dataframe && Object.keys(event?.dataframe)?.length > 0 && (
-                  <div className="flex items-center justify-between">
-                    {/* <div className="flex items-center space-x-4">
+                {event?.dataframe &&
+                  Object.keys(event?.dataframe)?.length > 0 && (
+                    <div className="flex items-center justify-between">
+                      {/* <div className="flex items-center space-x-4">
                       <span
                         className={`text-sm font-medium ${
                           currentDataframe === "table"
@@ -292,36 +277,36 @@ const RegenerateExecution = ({
                       </span>
                     </div> */}
 
-                    <div className="flex items-center space-x-4">
-                      {currentTab === "chart" && !streaming && (
-                        <div
-                          className="flex items-center space-x-2 text-xs font-medium cursor-pointer text-white/50 hover:text-white group"
-                          onClick={() => setShowGraphChange(true)}
-                        >
-                          <span className="flex items-center justify-center">
-                            <svg
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="w-4 h-4 fill-white/50 group-hover:fill-white"
-                            >
-                              <path d="M8 14.6641C7.16667 14.6641 6.38611 14.5057 5.65833 14.1891C4.93056 13.8724 4.29722 13.4446 3.75833 12.9057C3.21944 12.3668 2.79167 11.7335 2.475 11.0057C2.15833 10.278 2 9.4974 2 8.66406H3.33333C3.33333 9.96406 3.78611 11.0668 4.69167 11.9724C5.59722 12.878 6.7 13.3307 8 13.3307C9.3 13.3307 10.4028 12.878 11.3083 11.9724C12.2139 11.0668 12.6667 9.96406 12.6667 8.66406C12.6667 7.36406 12.2139 6.26128 11.3083 5.35573C10.4028 4.45017 9.3 3.9974 8 3.9974H7.9L8.93333 5.03073L8 5.9974L5.33333 3.33073L8 0.664062L8.93333 1.63073L7.9 2.66406H8C8.83333 2.66406 9.61389 2.8224 10.3417 3.13906C11.0694 3.45573 11.7028 3.88351 12.2417 4.4224C12.7806 4.96129 13.2083 5.59462 13.525 6.3224C13.8417 7.05017 14 7.83073 14 8.66406C14 9.4974 13.8417 10.278 13.525 11.0057C13.2083 11.7335 12.7806 12.3668 12.2417 12.9057C11.7028 13.4446 11.0694 13.8724 10.3417 14.1891C9.61389 14.5057 8.83333 14.6641 8 14.6641Z" />
-                            </svg>
-                          </span>
+                      <div className="flex items-center space-x-4">
+                        {currentTab === "chart" && !streaming && (
+                          <div
+                            className="flex items-center space-x-2 text-xs font-medium cursor-pointer text-white/50 hover:text-white group"
+                            onClick={() => setShowGraphChange(true)}
+                          >
+                            <span className="flex items-center justify-center">
+                              <svg
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="w-4 h-4 fill-white/50 group-hover:fill-white"
+                              >
+                                <path d="M8 14.6641C7.16667 14.6641 6.38611 14.5057 5.65833 14.1891C4.93056 13.8724 4.29722 13.4446 3.75833 12.9057C3.21944 12.3668 2.79167 11.7335 2.475 11.0057C2.15833 10.278 2 9.4974 2 8.66406H3.33333C3.33333 9.96406 3.78611 11.0668 4.69167 11.9724C5.59722 12.878 6.7 13.3307 8 13.3307C9.3 13.3307 10.4028 12.878 11.3083 11.9724C12.2139 11.0668 12.6667 9.96406 12.6667 8.66406C12.6667 7.36406 12.2139 6.26128 11.3083 5.35573C10.4028 4.45017 9.3 3.9974 8 3.9974H7.9L8.93333 5.03073L8 5.9974L5.33333 3.33073L8 0.664062L8.93333 1.63073L7.9 2.66406H8C8.83333 2.66406 9.61389 2.8224 10.3417 3.13906C11.0694 3.45573 11.7028 3.88351 12.2417 4.4224C12.7806 4.96129 13.2083 5.59462 13.525 6.3224C13.8417 7.05017 14 7.83073 14 8.66406C14 9.4974 13.8417 10.278 13.525 11.0057C13.2083 11.7335 12.7806 12.3668 12.2417 12.9057C11.7028 13.4446 11.0694 13.8724 10.3417 14.1891C9.61389 14.5057 8.83333 14.6641 8 14.6641Z" />
+                              </svg>
+                            </span>
 
-                          <span>Change graph type</span>
-                        </div>
-                      )}
+                            <span>Change graph type</span>
+                          </div>
+                        )}
 
-                      {showAddDashboard && (
-                        <DashboardDropdown
-                          eventId={event.id}
-                          messageId={messageId}
-                        />
-                      )}
+                        {showAddDashboard && (
+                          <DashboardDropdown
+                            eventId={event.id}
+                            messageId={messageId}
+                          />
+                        )}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
                 {currentTab === "table" && !streaming && (
                   <div className="relative w-full h-full group">

@@ -24,11 +24,12 @@ export default async function handler(req, res) {
     const endpoint = `${baseUrl}/v1/integrate/assistant/${message_id}/graph/${event_id}/get-graph/?skip=${skip}&limit=${limit}`;
 
     // 4) Make the POST request to the remote service
+
+    // Add your API key:
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Add your API key if needed:
         "X-API-KEY": "77826d4d-932e-450d-ab2b-8da7c4634787",
       },
       body: JSON.stringify(payload),

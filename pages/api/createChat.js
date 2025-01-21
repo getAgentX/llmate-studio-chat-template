@@ -13,6 +13,7 @@ export default async function handler(req, res) {
 
     const endpoint = `${apiUrl}/v1/integrate/assistant/${assistant_id}/chat/`;
 
+    // Add your API key:
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {

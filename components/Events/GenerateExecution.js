@@ -5,7 +5,6 @@ import CommonChart from "../common/CommonChart";
 import AssistantGraphMenu from "../Dashboard/AssistantGraphMenu";
 import PivotGraph from "../Dashboard/PivotGraph";
 import PivotGraphTable from "../Dashboard/PivotGraphTable";
-import SqlCommandMenu from "../Dashboard/SqlCommandMenu";
 
 const GenerateExecution = ({
   event,
@@ -18,7 +17,6 @@ const GenerateExecution = ({
   const [showTable, setShowTable] = useState(false);
   const [dataframe, setDataframe] = useState({});
   const [showGraphChange, setShowGraphChange] = useState(false);
-  const [showSqlCommand, setShowSqlCommand] = useState(false);
   const [chartType, setChartType] = useState(
     event?.data_visualization_config?.graph_type
   );
@@ -395,14 +393,6 @@ const GenerateExecution = ({
           setChartType={setChartType}
           visualizationInfo={visualizationInfo}
           setVisualizationInfo={setVisualizationInfo}
-        />
-      )}
-
-      {showSqlCommand && (
-        <SqlCommandMenu
-          show={showSqlCommand}
-          setShow={setShowSqlCommand}
-          data={event?.sql}
         />
       )}
     </div>

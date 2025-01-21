@@ -84,6 +84,7 @@ export default async function handler(req, res) {
     const apiUrl = "https://stream.staging.llmate.ai";
     const endpoint = `${apiUrl}/v1/integrate/assistant/${assistant_id}/chat/${chat_id}/send-message/`;
 
+    // Add your API key:
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {

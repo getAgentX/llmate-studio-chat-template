@@ -296,7 +296,7 @@ const ChatSlug = () => {
 
   return (
     <div className="relative flex flex-col h-full bg-page max-h-screen min-h-screen overflow-hidden font-roboto">
-      <nav className="px-4 py-2 min-h-14 border-b flex items-center border-border-color">
+      <nav className="px-4 sticky top-0 z-50 left-0 right-0 bg-page py-2 min-h-14 border-b flex items-center border-border-color">
         <div className="flex items-center justify-between w-full max-w-6xl mx-auto">
           <Link href="/" className="text-lg font-medium text-accent">
             Assistant Name
@@ -1188,11 +1188,14 @@ const ChatSlug = () => {
                 </span>
 
                 <p className="text-sm font-medium text-primary-text">
-                  {currentAssistant?.name}
+                  {currentAssistant?.name} Assistant name
                 </p>
 
                 <p className="text-sm font-normal leading-6 text-secondary-text">
-                  {currentAssistant?.about}
+                  {currentAssistant?.about} Your friendly AI companion, always
+                  ready to help. Feel free to replace this text with your own
+                  description. You can highlight specific features or
+                  personality traits of your assistant here.
                 </p>
 
                 {currentAssistant?.stage_config?.default?.sample_questions
@@ -2168,11 +2171,14 @@ const ChatSlug = () => {
                 </span>
 
                 <p className="text-sm font-medium text-primary-text">
-                  {currentAssistant?.name}
+                  {currentAssistant?.name} Assistant name
                 </p>
 
                 <p className="text-sm font-normal leading-6 text-secondary-text">
-                  {currentAssistant?.about}
+                  {currentAssistant?.about} Your friendly AI companion, always
+                  ready to help. Feel free to replace this text with your own
+                  description. You can highlight specific features or
+                  personality traits of your assistant here.
                 </p>
 
                 {currentAssistant?.stage_config?.default?.sample_questions

@@ -26,6 +26,8 @@ export default async function handler(req, res) {
 
     // 4) Make the POST request to your remote service
     //    Include any headers you need (e.g. X-API-KEY)
+
+    // Add your API key:
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
