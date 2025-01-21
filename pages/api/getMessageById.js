@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     // 3) Make the request to the remote API
     //    Replace `YOUR_BASE_URL` with your actual API base
     const baseUrl = "https://api.staging.llmate.ai";
-    const endpoint = `${baseUrl}/assistant/${message_id}/`;
+    const endpoint = `${baseUrl}/v1/integrate/assistant/${message_id}/`;
 
     // Add your API key:
     const response = await fetch(endpoint, {
