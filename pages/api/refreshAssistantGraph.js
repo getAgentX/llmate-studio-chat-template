@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     }
 
     // 3) You might have an ENV or a base URL. For example:
-    const baseUrl = "https://api.staging.llmate.ai";
+    const baseUrl = process.env.LLMATE_API_END_POINT;
 
     // Construct the endpoint
     const endpoint = `${baseUrl}/v1/integrate/assistant/${message_id}/graph/${event_id}/refresh/?skip=${skip}&limit=${limit}`;
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-KEY": "77826d4d-932e-450d-ab2b-8da7c4634787",
+        "X-API-KEY": process.env.LLMATE_API_KEY,
       },
       body: JSON.stringify(payload), // The payload from your request body
     });

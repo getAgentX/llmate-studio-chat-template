@@ -24,7 +24,7 @@
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
-//         "X-API-KEY": "77826d4d-932e-450d-ab2b-8da7c4634787",
+//         "X-API-KEY": process.env.LLMATE_API_KEY,
 //       },
 //       body: JSON.stringify(req.body),
 //     });
@@ -81,7 +81,7 @@ export default async function handler(req, res) {
   res.setHeader("Connection", "keep-alive");
 
   try {
-    const apiUrl = "https://stream.staging.llmate.ai";
+    const apiUrl = process.env.LLMATE_STREAM_END_POINT;
     const endpoint = `${apiUrl}/v1/integrate/assistant/${assistant_id}/chat/${chat_id}/send-message/`;
 
     // Add your API key:
@@ -89,7 +89,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-KEY": "77826d4d-932e-450d-ab2b-8da7c4634787",
+        "X-API-KEY": process.env.LLMATE_API_KEY,
       },
       body: JSON.stringify({ user_query }),
     });
@@ -97,8 +97,11 @@ export default async function handler(req, res) {
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
 
+
+    // let first_done = False
+
     async function processChunk({ done, value }) {
-      if (done) {
+      if (done ) {
         res.end();
         return;
       }

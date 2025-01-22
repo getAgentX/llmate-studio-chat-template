@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     // 3) Construct the URL
     //    Adjust the base URL and any env variable usage for your environment
-    const baseUrl = "https://api.staging.llmate.ai";
+    const baseUrl = process.env.LLMATE_API_END_POINT;
     const endpoint = `${baseUrl}/v1/integrate/assistant/${message_id}/graph/${event_id}/get-graph/?skip=${skip}&limit=${limit}`;
 
     // 4) Make the POST request to the remote service
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-KEY": "77826d4d-932e-450d-ab2b-8da7c4634787",
+        "X-API-KEY": process.env.LLMATE_API_KEY,
       },
       body: JSON.stringify(payload),
     });
